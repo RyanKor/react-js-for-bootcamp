@@ -1,29 +1,33 @@
-import React, { useState, useCallback } from "react"
-import {MdAdd} from 'react-icons/md'
+import React, { useState, useCallback } from 'react';
+import { MdAdd } from 'react-icons/md';
 import './TodoInsert.scss';
 
-const TodoInsert = ({onInsert}) =>{
-    const [value, setValue] = useState('');
-    const onChange = useCallback(e=>{
-        setValue(e.target.value)
-    }, [])
-    const onSubmit = useCallback(
-        e=> {
-            onInsert(value);
-            setValue('');
-            e.preventDefault();
-        },
-        [onInsert, value]
-    )
-    return (
-        <form className="TodoInsert" onSubmit={onSubmit} >
-            <input placeholder="Enter what you do" value={value} onChange={onChange} ></input>
-            <button type="submit" >
-                <MdAdd/>
-            </button>
-        </form>
-    )
-}
+const TodoInsert = ({ onInsert }) => {
+  const [value, setValue] = useState('');
+  const onChange = useCallback(e => {
+    setValue(e.target.value);
+  }, []);
+  const onSubmit = useCallback(
+    e => {
+      onInsert(value);
+      setValue('');
+      e.preventDefault();
+    },
+    [onInsert, value],
+  );
+  return (
+    <form className="TodoInsert" onSubmit={onSubmit}>
+      <input
+        placeholder="Enter what you do"
+        value={value}
+        onChange={onChange}
+      ></input>
+      <button type="submit">
+        <MdAdd />
+      </button>
+    </form>
+  );
+};
 // submit vs click event difference
 // submit은 enter 제출 가능하나, click은 클릭만 된다.
-export default TodoInsert
+export default TodoInsert;
