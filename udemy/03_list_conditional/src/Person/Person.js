@@ -4,6 +4,7 @@ import "./Person.css";
 
 const person = (props) => {
   //variables
+  console.log(props);
   return (
     <div className="Person">
       <p onClick={props.click}>

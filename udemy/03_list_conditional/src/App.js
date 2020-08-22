@@ -43,7 +43,7 @@ class App extends Component {
   };
 
   togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
+    const doesShow = this.state.showPersons; //showPersons는 true, false로 조작
     this.setState({ showPersons: !doesShow });
   };
 
