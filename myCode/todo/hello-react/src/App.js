@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
 import MyComponent from './MyComponent'
-import EventPractice from './EventPractice'
+import ValidatedSample from './ValidationSample'
 
-function App() {
-  return <EventPractice />
+class App extends Component{
+  render(){
+    return(
+      <ValidatedSample />
+    )
+  }
 }
 
 export default App;
