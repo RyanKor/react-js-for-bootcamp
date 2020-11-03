@@ -17,6 +17,8 @@
 
 - React.js + Node.js => Admin Page, Chatbot을 만들어보자
 
+- 뭘 만들어야 할지 한참 방황했는데, 이제 뭘 만들고 싶은지 약간 윤곽이 잡혔다.
+
 ## Readmd.md 참고내용 (2020.07.20)
 
 - [리액트를 다루는 기술](./velopert/Readme.md)
