@@ -1,12 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Customer from './components/Customer'
+
+
+const customer = {
+  'name' : 'ryan kim',
+  'age' : '27',
+  'gender' : 'man',
+  'job' : 'software engineer'
+}
 
 function App() {
   return (
-    <div className="gray-background">
-      <img src={logo} alt='logo' />
-      <h1>Let's develop Management System</h1>
-    </div>
+    <Customer
+    name={customer.name}
+    age={customer.age}
+    gender={customer.gender}
+    job={customer.job}
+    />
   );
 }
 
