@@ -23,7 +23,7 @@ class App extends Component{
           Random color
         </button>
         <ErrorBoundary>
-        <LifeCycleSample color={this.state.color}/>
+          <LifeCycleSample color={this.state.color}/>
         </ErrorBoundary>
       </div>
     )
