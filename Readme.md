@@ -24,3 +24,10 @@
 - [리액트를 다루는 기술](./velopert/Readme.md)
 
 - [Udemy React Programming](./udemy/Readme.md)
+
+## React Life Cycle Method Diagram
+
+- Life Cycle Diagram
+- [Link](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
+![React](./react.png)
