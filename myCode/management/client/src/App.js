@@ -21,34 +21,18 @@ const styles = themes =>({
   }
 })
 
-const customer = [
-  {
-  'id': 1,
-  'image': 'https://placeimg.com/64/64/1',
-  'name' : 'ryan kim',
-  'age' : '27',
-  'gender' : 'man',
-  'job' : 'software engineer'
-},
-{
-  'id': 2,
-  'image': 'https://placeimg.com/64/64/2',
-  'name' : '깽나니우스',
-  'age' : '51',
-  'gender' : 'woman',
-  'job' : '가위손'
-},
-{
-  'id': 3,
-  'image': 'https://placeimg.com/64/64/3',
-  'name' : '로버트 깽나니우스 주니어',
-  'age' : '25',
-  'gender' : 'woman',
-  'job' : '금융인'
-}
-]
-
 class App extends Component {
+  state = {
+    customers: ""
+  }
+  componentDidMount(){
+    this.callApi().then(res =>this.setState({customers:res})).catch(err=>console.log(err))
+  }
+  callApi = async()=>{
+    const response = await fetch('/api/customers')
+    const body = await response.json()
+    return body
+  }
   render(){  
     const {classes} = this.props;
     return (
@@ -68,7 +52,7 @@ class App extends Component {
         {
           //map 함수는 React의 불변성을 유지해주는 유용한 JS 메소드다.
           //다만, map을 활용할 땐, 반드시 key라는 속성을 넣어줘야한다.
-          customer.map(element=>{
+          this.state.customers ? this.state.customers.map(element=>{
             return(
             <Customer
               key={element.id} // key는 각 컴포넌트를 구분해주는 역할을 해준다.
@@ -80,7 +64,7 @@ class App extends Component {
               job={element.job}
             />)
           }
-          )
+          ) : ""
         }
         </TableBody>
       </Table>
