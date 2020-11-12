@@ -32,7 +32,9 @@ class App extends Component {
   }
   componentDidMount(){
     this.timer = setInterval(this.progress, 20)
-    this.callApi().then(res =>this.setState({customers:res})).catch(err=>console.log(err))
+    this.callApi()
+    .then(res =>this.setState({customers:res}))
+    .catch(err=>console.log(err))
   }
   callApi = async()=>{
     const response = await fetch('/api/customers')
@@ -69,7 +71,7 @@ class App extends Component {
               id={element.id}
               image={element.image}
               name={element.name}
-              age={element.age}
+              birthday={element.birthday}
               gender={element.gender}
               job={element.job}
             />)
