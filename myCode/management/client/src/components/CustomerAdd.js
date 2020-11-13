@@ -17,7 +17,10 @@ class CustomerAdd extends React.Component{
     handleFormSubmit = (e)=>{
         e.preventDefault()
         this.addCustomer()
-        .then(response=>console.log(response.data))
+        .then(response=>{
+            console.log(response.data)
+            this.props.stateRefresh() //서버로부터 응답을 받고 난 뒤에 state를 refresh한다.
+        })
         this.setState({
             file : null,
             userName : '',
@@ -26,7 +29,7 @@ class CustomerAdd extends React.Component{
             job : '',
             fileName : ''
         })
-        window.location.reload()
+
     }
     handleFileChange = (e)=>{
         this.setState({
