@@ -18,6 +18,15 @@ class CustomerAdd extends React.Component{
         e.preventDefault()
         this.addCustomer()
         .then(response=>console.log(response.data))
+        this.setState({
+            file : null,
+            userName : '',
+            birthday : '',
+            gender : '',
+            job : '',
+            fileName : ''
+        })
+        window.location.reload()
     }
     handleFileChange = (e)=>{
         this.setState({
@@ -62,7 +71,7 @@ class CustomerAdd extends React.Component{
                 Name : 
                 <input 
                 type="text" 
-                name="username" 
+                name="userName" 
                 value={this.state.userName} 
                 onChange={this.handleValueChange}/> <br />
                 Birthday : 
