@@ -8,14 +8,14 @@
 
 ## Project Structure
 
-App.js
-|
-V
-TodoTemplate.js
+App.js <br />
+| <br />
+V<br />
+TodoTemplate.js <br />
 |               \
-TodoInsert.js TodoList.js
-                    |
-                    TodoListItem.js
+TodoInsert.js TodoList.js <br />
+                    | <br />
+                    TodoListItem.js <br />
 
 
 ## Core Funtion
