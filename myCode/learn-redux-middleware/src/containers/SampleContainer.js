@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import Sample from '../components/Sample'
 import {getPost, getUsers} from '../modules/sample'
 
-const {userEffect} = React
+const {useEffect} = React
 const SampleContainer = ({
     getPost,
     getUsers,
@@ -26,11 +26,11 @@ const SampleContainer = ({
     )
 }
 export default connect(
-    ({sample})=>({
+    ({sample, loading})=>({
         post:sample.post,
         users:sample.users,
-        loadingPost:sample.loading.GET_POST,
-        loadingUsers:sample.loading.GET_USERS
+        loadingPost:loading['sample/GET_POST'],
+        loadingUsers:loading['sample/GET_POST']
     }),
     {
         getPost,
