@@ -16,7 +16,7 @@ const env = getClientEnvironment(publicUrl)
 module.exports ={
     mode: "production",
     entry : paths.ssrIndexJs,
-    taget: "node",
+    target: "node",
     output: {
         path : paths.ssrBuild,
         filename : 'server.js',
@@ -116,13 +116,13 @@ module.exports ={
                     }
                 ]
             }
-        ],
-        resolve: {
-            modules: ['node_modules']
-        },
-        externals:[nodeExternals()],
-        plugins:[
-            new webpack.DefinePlugin(env.stringified)
         ]
-    }
+    },
+    resolve: {
+        modules: ['node_modules']
+    },
+    externals:[nodeExternals()],
+    plugins:[
+        new webpack.DefinePlugin(env.stringified)
+    ]
 }
