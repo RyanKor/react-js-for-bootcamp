@@ -21,7 +21,8 @@ module.exports ={
         path : paths.ssrBuild,
         filename : 'server.js',
         chunkFilename : "js/[name].chunk.js",
-        publicPath : paths.publicUrlOrPath,
+        publicPath : paths.publicUrlOrPath, // publicUrlOrPath is updated.
+        // velopert React.js has mistake on here.
     },
     module: {
         rules: [
@@ -93,6 +94,8 @@ module.exports ={
                         use: [
                             {
                                 loader: require.resolve('css-loader'),
+                                // CSS Loader -> options / modules / exportOnlyLocals
+                                // OnlyLocals is not existed command in CSS Loader
                                 options: {
                                     modules:{
                                         exportOnlyLocals : true

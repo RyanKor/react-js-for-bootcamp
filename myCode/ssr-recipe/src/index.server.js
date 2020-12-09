@@ -5,17 +5,19 @@ import {StaticRouter} from 'react-router-dom'
 import App from './App'
 import path from 'path'
 import fs from 'fs'
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware} from 'redux' // redux -> store / index.server.js
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import rootReducer, {rootSaga} from './modules'
 import PreloadContext, { Preloader } from './lib/PreloadContext'
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga' // Saga Import
 import {END} from 'redux-saga'
 
 const manifest = JSON.parse(
     fs.readFileSync(path.resolve('./build/asset-manifest.json'), 'utf8')
-)
+) // File Path Designation
+
+
 const chunks = Object.keys(manifest.files)
 .filter(key=>/chunks\.js$/.exec(key))
 .map(key=>`<script src="${manifest.files[key]}"></script>`)
