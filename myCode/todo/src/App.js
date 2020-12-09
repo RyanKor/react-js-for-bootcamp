@@ -5,7 +5,9 @@ import TodoList from './component/TodoList'
 
 function createBulkTodos(){
   const array = []
-  for(let i = 1; i<=2500; i++){
+  for(let i = 1; i<=10; i++){
+
+    // todo app pushing here
     array.push({
       id: i,
       text: `Todo ${i}`,
@@ -14,7 +16,7 @@ function createBulkTodos(){
   }
   return array
 }
-
+// todo state management system
 function todoReducer(todos,action){
   switch(action.type){
     case 'INSERT':

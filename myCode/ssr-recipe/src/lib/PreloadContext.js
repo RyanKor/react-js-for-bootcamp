@@ -1,4 +1,4 @@
-import {createContext, useContext} from 'react'
+import {createContext, useContext} from 'react' // react Hooks -> Context API
 
 
 //client setting : null
@@ -10,11 +10,12 @@ export const Preloader = ({resolve})=>{
     const preloadContext = useContext(PreloadContext)
     if(!preloadContext) return null;
     if(preloadContext.done) return null
-
     preloadContext.promises.push(Promise.resolve(resolve()))
     return null
 }
 
+
+//usePreloade
 export const usePreloader = resolve => {
     const preloadContext = useContext(PreloadContext)
     if(!preloadContext) return null;

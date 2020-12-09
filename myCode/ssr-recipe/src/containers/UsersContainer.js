@@ -9,19 +9,7 @@ import {Preloader, usePreloader} from '../lib/PreloadContext'
 const UsersContainer = ({id})=>{
     const user = useSelector(state=>state.users.user)
     const dispatch = useDispatch()
-    // useEffect(()=> {
-    //     if(user && user.id === parseInt(id,10)) return;
-    //     dispatch(getUser(id))
-    // }, [dispatch,id,user])
-    // if(!user){
-    //     return (
-    //         <Preloader resolve={()=>dispatch(getUser(id))} />
-    //     )
-    // }else{
-    //     return (
-    //             <Users user={user} />
-    //         )
-    // }
+
     usePreloader(()=> dispatch(getUser(id)))
     useEffect(()=>{
         if(user && user.id === parseInt(id,10)) return;
