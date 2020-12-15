@@ -1,8 +1,14 @@
 import React from 'react'
-
+import AuthTemplate from '../components/auth/AuthTemplate'
+// import AuthForm from '../components/auth/AuthForm'
+import RegisterForm from '../containers/auth/RegisterForm'
 
 const SignupPage = ()=>{
-    return <div>Signup</div>
+    return (
+        <AuthTemplate>
+        <RegisterForm/>
+        </AuthTemplate>
+    )
 }
 
 export default SignupPage
