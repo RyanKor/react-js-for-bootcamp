@@ -50,21 +50,51 @@ const Footer = styled.div`
     }
 `;
 
+const ErrorMessage = styled.div`
+    color: red;
+    text-align: center;
+    font-size : 0.875rem;
+    margin-top: 1rem;
+`
 
-const AuthForm = ({type, form, onChange, onSubmit})=>{
+
+const AuthForm = ({type, form, onChange, onSubmit, error})=>{
     const text = textMap[type]
     return (
         <AuthFormBlock>
             <h3>{text}</h3>
             <form onSubmit={onSubmit}>
-                <StyledInput autoComplete="username" name="username" placeholder="ID" onChange={onChange} value={form.username} />
-                <StyledInput autoComplete="password" name="password" placeholder="Password" type="password" onChange={onChange} value={form.password} />
+                <StyledInput 
+                    autoComplete="username" 
+                    name="username" 
+                    placeholder="ID" 
+                    onChange={onChange} 
+                    value={form.username} 
+                />
+                <StyledInput 
+                    autoComplete="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    type="password" 
+                    onChange={onChange} 
+                    value={form.password} 
+                />
                 {
                     type === "register" && (
-                        <StyledInput autoComplete="new-password" name="passwordConfirm" placeholder="Password Confirm" type="password" onChange={onChange} value={form.passwordConfirm} />
+                        <StyledInput 
+                            autoComplete="new-password" 
+                            name="passwordConfirm" 
+                            placeholder="Password Confirm" 
+                            type="password" 
+                            onChange={onChange} 
+                            value={form.passwordConfirm} 
+                        />
                     )
                 }
-    <ButtonWithMarginTop cyan fullWidth>{type}</ButtonWithMarginTop>
+                {error && <ErrorMessage>Error Occured!</ErrorMessage>}
+            <ButtonWithMarginTop cyan fullWidth>
+                {type}
+            </ButtonWithMarginTop>
             </form>
         <Footer>
             {type === "login" ? (
