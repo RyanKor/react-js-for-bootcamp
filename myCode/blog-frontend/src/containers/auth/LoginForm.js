@@ -1,12 +1,17 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeField, initializeForm} from '../../modules/auth'
+import {withRouter} from 'react-router-dom'
+import {changeField, initializeForm, login} from '../../modules/auth'
 import AuthForm from '../../components/auth/AuthForm'
+import {check} from '../../modules/user'
 
-const LoginForm = ()=>{
+const LoginForm = ({history})=>{
     const dispatch = useDispatch()
-    const {form} = useSelector(({auth}) =>({
-        form: auth.login
+    const {form, auth, authError, user} = useSelector(({auth, user}) =>({
+        form: auth.login,
+        auth : auth.auth,
+        authError: auth.authError,
+        user: user.user
     }))
     const onChange = e=>{
         const {value, name} = e.target;
@@ -20,11 +25,32 @@ const LoginForm = ()=>{
     }
     const onSumbit = e =>{
         e.preventDefault()
+        const {username, password} = form
+        dispatch(login({username,password}))
     }
     useEffect(()=>{
         dispatch(initializeForm('login'))
         //로그인이 진행된 이후, 로그인 시도할 때 입력했던 개인정보 삭제
     }, [dispatch])
+
+    useEffect(()=>{
+        if(authError){
+            console.log("error occured!")
+            console.log(authError)
+            return;
+        }
+        if(auth){
+            console.log("Signup Success!")
+            dispatch(check())
+        }
+    }, [auth,authError, dispatch])
+
+    useEffect(()=>{
+        if(user){
+            history.push('/')
+        }
+    }, [history,user])
+
     return(
         <AuthForm
         type="login"
@@ -35,4 +61,4 @@ const LoginForm = ()=>{
     )
 }
 
-export default LoginForm
+export default withRouter(LoginForm) 
